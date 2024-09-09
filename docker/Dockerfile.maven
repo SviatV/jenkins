@@ -1,0 +1,16 @@
+FROM jenkins/slave
+
+USER root
+
+# Install necessary dependencies and set up certificates
+RUN apt-get update -y && \
+    apt-get install -y openjdk-11-jre-headless ca-certificates-java && \
+    apt-get install -y maven && \
+    update-ca-certificates -f
+
+# Clean up
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set Java Home (optional, but recommended)
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64

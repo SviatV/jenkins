@@ -1,0 +1,25 @@
+---
+- job-template:
+    name: 'ui_tests'
+    description: '<h3>test-job</h3>'
+    project-type: pipeline
+    concurrent: true
+    properties:
+      - build-discarder:
+          num-to-keep: 10
+    parameters:
+      - text:
+          name: YAML_CONFIG
+          default: |
+            BROWSER_NAME: ${BROWSER_NAME}
+      - string:
+          name: BRANCH
+          default: ${BRANCH}
+          description: Branch for tests
+    pipeline-scm:
+      scm:
+        - git:
+            url: ${GIT_UI_TESTS_URL}
+            branches:
+              - ${BRANCH}
+    script-path: jenkins/ui-tests.groovy

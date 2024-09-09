@@ -1,0 +1,20 @@
+---
+
+- scm:
+    name: git-ui-tests
+    scm:
+      - git:
+          url: ${GIT_UI_TESTS_URL}
+          credentials-id: ${CREDENTIALS_ID}
+          branches:
+            - FETCH_HEAD
+          refspec: ${REFSPEC}
+- scm:
+    name: git-runner
+    scm:
+      - git:
+        url: ${GIT_RUNNER_URL}
+        credentials-id: ${CREDENTIALS_ID}
+        branches:
+          - FETCH_HEAD
+        refspec: ${BRANCH}

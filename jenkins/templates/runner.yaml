@@ -1,0 +1,23 @@
+- job-template:
+  name: 'runner-tests'
+  description: '«h3 style="color: #999696;">Runner tests</h3>'
+  project-type: pipeline
+  concurrent: true
+  logrotate:
+    daysToKeep: 30
+    numToKeep: 10
+  properties:
+    - text: |
+        name: YAML_PARAMS
+        default: |
+          BROWSER_NAME: ${BROWSER_NAME}
+    - string:
+      name: BRANCH
+      default: ${BRANCH}
+      description: Branch for runner tests
+  pipeline-scm:
+    - git:
+        url: ${GIT_RUNNER_URL}
+        branches:
+          - ${BRANCH}
+        script-path: jenkins/runner-tests.groovy

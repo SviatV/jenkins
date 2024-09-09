@@ -1,0 +1,11 @@
+# project-vars.yaml
+
+REFSPEC: "refs/heads/main"
+BRANCH: "master"
+CREDENTIALS_ID: "jenkins-sviat"
+GIT_UI_TESTS_URL: "https://github.com/SviatV/SeleniumUITests.git"
+GIT_RUNNER_URL: "https://github.com/SviatV/jenkins.git"
+BROWSER_NAME: "chrome"
+BROWSER_VERSION: "121.0"
+REMOTE_URL: "http://localhost:4444/wd/hub"
+TEST_VERSION: "1.0"

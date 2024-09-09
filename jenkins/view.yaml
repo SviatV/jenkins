@@ -1,0 +1,19 @@
+cat view.yaml
+---
+- view:
+    name: QA
+    view-type: list
+    description: |
+      QA
+    filter-executors: true
+    filter-queue: true
+    job-name:
+      - 'ui_tests'
+    columns:
+      - status
+      - weather
+      - job
+      - last-success
+      - last-failure
+      - last-duration
+      - build-button
